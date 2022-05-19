@@ -15,13 +15,28 @@
 
 <body>
     <header>
+        <button id="homeButton">Home</button>
         <div class="gutter-right logo">
             <img src="../assets/big-logo.png" />
         </div>
     </header>    
-    <button id="logout">Logout</button>
     <main>
-        <h1>You are logged in!</h1>
+        <div class="form">
+            <h2>Sign up!</h2>
+            <form id="signUpForm">
+                <label>Email: </label><input type="text" name="email" id="signUpEmail">
+                <label>Password: </label><input type="password" name="password" id="signUpPassword">
+                <button>Submit</button>
+            </form>
+        </div>
+        <div class="form">
+            <h2>Sign in!</h2>
+            <form id="signInForm">
+                <label>Email: </label><input type="text" name="signInEmail" id="signInEmail">
+                <label>Password: </label><input type="password" name="signInPassword" id="signInPassword">
+                <button>Submit</button>
+            </form>
+        </div>
     </main>
     <footer>
         <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
