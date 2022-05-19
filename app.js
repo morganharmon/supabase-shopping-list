@@ -1,9 +1,10 @@
-import { redirectIfLoggedIn, signInUser, signUpUser, createNewItem } from './fetch-utils.js';
+import { redirectIfLoggedIn, signInUser, signUpUser, createNewItem, checkAuth, getUser, logout } from './fetch-utils.js';
 
 
 
 const addItem = document.getElementById('addItem');
 const signInButton = document.getElementById('signInButton');
+const logOutButton = document.getElementById('logOutButton');
 
 // if user currently logged in, redirect
 // redirectIfLoggedIn();
@@ -22,4 +23,19 @@ addItem.addEventListener('submit', async (e) => {
         console.error(response.error);
     }
 
+});
+
+window.addEventListener('load', () => {
+    const user = getUser();
+    if (user) {
+        signInButton.classList.add('hidden');
+        logOutButton.classList.remove('hidden');
+    } else {
+        signInButton.classList.remove('hidden');
+        logOutButton.classList.add('hidden');
+    }
+});
+
+logOutButton.addEventListener('click', async () => {
+    await logout();
 });

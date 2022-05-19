@@ -1,4 +1,4 @@
-import { checkAuth, logout, signUpUser } from '../fetch-utils.js';
+import { checkAuth, logout, signUpUser, signInUser } from '../fetch-utils.js';
 
 const signInForm = document.getElementById('signInForm');
 const signInEmail = document.getElementById('signInEmail');
@@ -32,13 +32,14 @@ signUpForm.addEventListener('submit', async (e) => {
     }
 });
 
-// signInForm.addEventListener('submit', async (e) => {
-//     e.preventDefault();
-//     const user = await signInUser(signInEmail.value, signInPassword.value);
+signInForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(signInForm);
+    const user = await signInUser(data.get('email'), data.get('password'));
 
-//     if (user) {
-//         redirectIfLoggedIn();
-//     } else {
-//         console.error(user);
-//     }
-// });
+    if (user) {
+        window.location.href = '/';
+    } else {
+        console.error(user);
+    }
+});
