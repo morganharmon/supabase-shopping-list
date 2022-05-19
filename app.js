@@ -39,3 +39,4 @@ window.addEventListener('load', () => {
 logOutButton.addEventListener('click', async () => {
     await logout();
 });
+
