@@ -37,6 +37,15 @@ export async function logout() {
     return (window.location.href = '../');
 }
 
+export async function createNewItem(item) {
+    const response = await client.from('shopping-list').insert(item);
+    if (response.data) {
+        return response.data;
+    } else {
+        console.error(response.error);
+    }
+}
+
 // function checkError({ data, error }) {
 //     return error ? console.error(error) : data;
 // }
