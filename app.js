@@ -1,10 +1,11 @@
-import { redirectIfLoggedIn, signInUser, signUpUser, createNewItem, checkAuth, getUser, logout } from './fetch-utils.js';
-
+import { redirectIfLoggedIn, signInUser, signUpUser, createNewItem, checkAuth, getUser, logout, getList } from './fetch-utils.js';
+import { renderItem } from './render-utils.js';
 
 
 const addItem = document.getElementById('addItem');
 const signInButton = document.getElementById('signInButton');
 const logOutButton = document.getElementById('logOutButton');
+const container = document.getElementById('form-container');
 
 // if user currently logged in, redirect
 // redirectIfLoggedIn();
@@ -25,7 +26,7 @@ addItem.addEventListener('submit', async (e) => {
 
 });
 
-window.addEventListener('load', () => {
+window.addEventListener('load', async () => {
     const user = getUser();
     if (user) {
         signInButton.classList.add('hidden');
@@ -33,6 +34,11 @@ window.addEventListener('load', () => {
     } else {
         signInButton.classList.remove('hidden');
         logOutButton.classList.add('hidden');
+    }
+    const list = await getList();
+    for (let item of list) {
+        const div = renderItem(item);
+        container.append(div);
     }
 });
 

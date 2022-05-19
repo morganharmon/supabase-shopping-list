@@ -46,6 +46,11 @@ export async function createNewItem(item) {
     }
 }
 
+export async function getList() {
+    const response = await client.from('shopping-list').select('*');
+    return response.data;
+}
+
 // function checkError({ data, error }) {
 //     return error ? console.error(error) : data;
 // }
