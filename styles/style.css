@@ -47,10 +47,11 @@ section {
 
 header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
     background-color: var(--color3);
     height: var(--header-height);
     box-shadow: var(--shadow);
+    font-size: 0.8rem;
 }
 
 h2 {
