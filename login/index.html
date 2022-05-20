@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/home.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>Shopping list</h1>
+        <button id="homeButton">Home</button>
+        <div class="gutter-right logo">
+            <img src="../assets/big-logo.png" />
+        </div>
+    </header>    
+    <main>
+        <div class="form">
+            <h2>Sign up!</h2>
+            <form id="signUpForm">
+                <label>Email: </label><input type="text" name="email" id="signUpEmail">
+                <label>Password: </label><input type="password" name="password" id="signUpPassword">
+                <button>Submit</button>
+            </form>
+        </div>
+        <div class="form">
+            <h2>Sign in!</h2>
+            <form id="signInForm">
+                <label>Email: </label><input type="text" name="email" id="signInEmail">
+                <label>Password: </label><input type="password" name="password" id="signInPassword">
+                <button>Submit</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="copy gutter-right">&copy; 2022 Alchemy Code Lab</div>
+    </footer>
+    <script type="module" src="./login.js"></script>
+</body>
+
+</html>

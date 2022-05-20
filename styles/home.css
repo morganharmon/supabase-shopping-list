@@ -1,1 +1,32 @@
 /* add home page styles here */
+
+.hidden {
+    display: none;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.purchased {
+    text-decoration: line-through;
+    background-color: #ffcab0;
+    border: solid 1px;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.item {
+    border: solid 1px;
+    background-color: #e0ffcd;
+}
