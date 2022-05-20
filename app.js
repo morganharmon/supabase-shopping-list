@@ -64,4 +64,5 @@ deleteButton.addEventListener('click', () => {
     }
 });
 
+checkAuth();
 displayItems();

@@ -22,6 +22,10 @@ body {
     background-color: var(--color2);
 }
 
+body {
+    background-color: #fdffcd;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -48,7 +52,7 @@ section {
 header {
     display: flex;
     justify-content: space-around;
-    background-color: var(--color3);
+    background-color: #ffebbb;
     height: var(--header-height);
     box-shadow: var(--shadow);
     font-size: 0.8rem;

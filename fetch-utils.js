@@ -10,7 +10,10 @@ export function getUser() {
 export function checkAuth() {
     const user = getUser();
 
-    if (!user) location.replace('../');
+    if (!user) { 
+        window.location.href = './login/index.html';
+        alert('Log in or sign up to create your shopping list!');
+    }
 }
 
 export function redirectIfLoggedIn() {
