@@ -1,11 +1,11 @@
-import { redirectIfLoggedIn, signInUser, signUpUser, createNewItem, checkAuth, getUser, logout, getList } from './fetch-utils.js';
+import { redirectIfLoggedIn, signInUser, signUpUser, createNewItem, checkAuth, getUser, logout, getList, purchase } from './fetch-utils.js';
 import { renderItem } from './render-utils.js';
 
 
 const addItem = document.getElementById('addItem');
 const signInButton = document.getElementById('signInButton');
 const logOutButton = document.getElementById('logOutButton');
-const container = document.getElementById('form-container');
+const items = document.getElementById('items');
 
 // if user currently logged in, redirect
 // redirectIfLoggedIn();
@@ -26,8 +26,14 @@ addItem.addEventListener('submit', async (e) => {
 
 });
 
-window.addEventListener('load', async () => {
+logOutButton.addEventListener('click', async () => {
+    await logout();
+});
+
+async function displayItems() {
+    items.textContent = '';
     const user = getUser();
+
     if (user) {
         signInButton.classList.add('hidden');
         logOutButton.classList.remove('hidden');
@@ -35,14 +41,18 @@ window.addEventListener('load', async () => {
         signInButton.classList.remove('hidden');
         logOutButton.classList.add('hidden');
     }
+
     const list = await getList();
-    for (let item of list) {
-        const div = renderItem(item);
-        container.append(div);
-    }
-});
+    if (list) {
+        for (let item of list) {
+            const div = await renderItem(item);
+            div.addEventListener('click', async (e) => {
+                e.preventDefault();
+                await purchase(item);
+                displayItems();
+            });
+            items.append(div);
+        }
+    }}
 
-logOutButton.addEventListener('click', async () => {
-    await logout();
-});
-
+displayItems();

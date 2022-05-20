@@ -47,9 +47,19 @@ export async function createNewItem(item) {
 }
 
 export async function getList() {
-    const response = await client.from('shopping-list').select('*');
+    const response = await client.from('shopping-list').select('*').order('created_at');
     return response.data;
 }
+
+export async function purchase(item) {
+    const response = await client.from('shopping-list').update({ purchased: !item.purchased }).match({ id: item.id });
+    if (response.data) {
+        return response.data;
+    } else {
+        console.error(response.error);
+    }
+}
+
 
 // function checkError({ data, error }) {
 //     return error ? console.error(error) : data;

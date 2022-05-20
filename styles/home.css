@@ -13,3 +13,7 @@ form {
     display: flex;
     flex-direction: column;
 }
+
+.purchased {
+    text-decoration: line-through;
+}
