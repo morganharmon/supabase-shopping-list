@@ -7,8 +7,6 @@ export async function renderItem(item) {
     } else {
         div.classList.remove('purchased');
     }
-    
-    div.append(p);
-    
+    div.append(p);  
     return div;
 }

@@ -1,4 +1,4 @@
-import { redirectIfLoggedIn, signInUser, signUpUser, createNewItem, checkAuth, getUser, logout, getList, purchase } from './fetch-utils.js';
+import { redirectIfLoggedIn, signInUser, signUpUser, createNewItem, checkAuth, getUser, logout, getList, purchase, deleteAll } from './fetch-utils.js';
 import { renderItem } from './render-utils.js';
 
 
@@ -6,6 +6,7 @@ const addItem = document.getElementById('addItem');
 const signInButton = document.getElementById('signInButton');
 const logOutButton = document.getElementById('logOutButton');
 const items = document.getElementById('items');
+const deleteButton = document.getElementById('deleteButton');
 
 // if user currently logged in, redirect
 // redirectIfLoggedIn();
@@ -53,6 +54,14 @@ async function displayItems() {
             });
             items.append(div);
         }
-    }}
+    }
+}
+
+deleteButton.addEventListener('click', () => {
+    window.confirm('Are you sure you want to delete your list?');
+    if (confirm) {
+        deleteAll();
+    }
+});
 
 displayItems();

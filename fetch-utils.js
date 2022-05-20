@@ -60,6 +60,11 @@ export async function purchase(item) {
     }
 }
 
+export async function deleteAll() {
+    const user = await getUser();
+    await client.from('shopping-list').delete().match({ user_id: user.id });
+    window.location.href = '/';
+}
 
 // function checkError({ data, error }) {
 //     return error ? console.error(error) : data;

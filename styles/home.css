@@ -17,3 +17,9 @@ form {
 .purchased {
     text-decoration: line-through;
 }
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
