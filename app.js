@@ -1,4 +1,4 @@
-import { redirectIfLoggedIn, signInUser, signUpUser, createNewItem, checkAuth, getUser, logout, getList, purchase, deleteAll } from './fetch-utils.js';
+import { createNewItem, checkAuth, getUser, logout, getList, purchase, deleteAll } from './fetch-utils.js';
 import { renderItem } from './render-utils.js';
 
 

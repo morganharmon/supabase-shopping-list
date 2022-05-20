@@ -1,21 +1,8 @@
-import { checkAuth, logout, signUpUser, signInUser } from '../fetch-utils.js';
+import { signUpUser, signInUser } from '../fetch-utils.js';
 
 const signInForm = document.getElementById('signInForm');
-const signInEmail = document.getElementById('signInEmail');
-const signInPassword = document.getElementById('signInPassword');
-
 const signUpForm = document.getElementById('signUpForm');
-const signUpEmail = document.getElementById('signUpEmail');
-const signUpPassword = document.getElementById('signUpPassword');
-
 const homeButton = document.getElementById('homeButton');
-// checkAuth();
-
-// const logoutButton = document.getElementById('logout');
-
-// logoutButton.addEventListener('click', () => {
-//     logout();
-// });
 
 homeButton.addEventListener('click', () => {
     window.location.href = '/';
